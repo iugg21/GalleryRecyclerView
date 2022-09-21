@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GalleryView" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/common_background</item>
+        <!-- 去掉按钮的阴影效果-->
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary</item>
+        <item name="colorAccent">@color/color_primary</item>
+
+        <item name="actionBarSize">@dimen/actionbar_height</item>
+    </style>
+</resources>

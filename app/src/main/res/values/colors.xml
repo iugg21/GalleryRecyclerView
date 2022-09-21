@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#d43e37</color>
+    <color name="color_primary_dark">#d43e37</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="common_background">#FFFFFFFF</color>
+
+    <drawable name="gallery_item_image_bg">#ffe5e5e5</drawable>
+</resources>

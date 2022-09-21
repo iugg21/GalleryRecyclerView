@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actionbar_height">48dp</dimen>
+
+    <dimen name="gallery_item_width">69dp</dimen>
+    <dimen name="gallery_item_height">97dp</dimen>
+    <dimen name="gallery_item_space_v">15dp</dimen>
+    <dimen name="gallery_item_space_h">6dp</dimen>
+
+</resources>
