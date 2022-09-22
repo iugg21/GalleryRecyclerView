@@ -102,7 +102,6 @@ public class GalleryRecyclerView extends RecyclerView {
 
     public GalleryRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
         setClipToPadding(false);
 
         mItemWidth = getResources().getDimensionPixelSize(R.dimen.gallery_item_width);
@@ -113,13 +112,7 @@ public class GalleryRecyclerView extends RecyclerView {
         mDecoratedCenterItemWidth = mCenterItemWidth + mItemSpaceH * 2;
         mCenterItemHeight = mItemHeight + mItemSpaceV;
 
-        addItemDecoration(new ItemDecoration() {
-            @Override
-            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull State state) {
-                outRect.left = mItemSpaceH;
-                outRect.right = mItemSpaceH;
-            }
-        });
+        addItemDecoration(new SpaceItemDecoration());
 
         mSnapHelper.attachToRecyclerView(this);
         mSnapHelper.attachToRecyclerView(null);
@@ -127,7 +120,9 @@ public class GalleryRecyclerView extends RecyclerView {
     }
 
     public void setCurrentItem(int position) {
-        scrollToPosition(position);
+        LinearLayoutManager layoutManager = (LinearLayoutManager) getLayoutManager();
+        //noinspection ConstantConditions
+        layoutManager.scrollToPositionWithOffset(position, 0);
         mSelectedPosition = position;
 
         post(() -> {
@@ -138,6 +133,7 @@ public class GalleryRecyclerView extends RecyclerView {
         });
     }
 
+    @SuppressWarnings("unused")
     private void reset() {
         if (mSelectedView != null) {
             mSelectedView.setSelected(false);
@@ -175,10 +171,6 @@ public class GalleryRecyclerView extends RecyclerView {
             itemView = (ViewGroup) getChildAt(i);
             child = itemView.getChildAt(0);
             float fraction = calculateFractionToCenter(itemView);
-
-            /*if (fraction <= 0.005f) {
-                fraction = 0f;
-            }*/
 
             ViewGroup.LayoutParams lp = child.getLayoutParams();
             lp.width = (int) (mItemWidth + (mCenterItemWidth - mItemWidth) * (1 - fraction));
@@ -248,6 +240,14 @@ public class GalleryRecyclerView extends RecyclerView {
                     }
                 }
             }
+        }
+    }
+
+    final class SpaceItemDecoration extends ItemDecoration {
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull State state) {
+            outRect.left = mItemSpaceH;
+            outRect.right = mItemSpaceH;
         }
     }
 
