@@ -1,6 +1,6 @@
 # GalleryRecyclerView
 
 #### 介绍
-仿猫眼电影影片详情页电影海报选择效果
+用RecyclerView做的一个仿猫眼电影电影海报Gallery效果
 
 ![image](https://gitee.com/ctrun/gallery-recycler-view/raw/master/screenshots/01.gif)
